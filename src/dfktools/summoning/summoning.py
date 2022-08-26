@@ -1,4 +1,5 @@
 from web3 import Web3
+from web3.logs import DISCARD
 
 SERENDALE_CONTRACT_ADDRESS = '0xf4d3aE202c9Ae516f7eb1DB5afF19Bf699A5E355'
 CRYSTALVALE_CONTRACT_ADDRESS = '0xBc36D18662Bb97F9e74B1EAA1B752aA7A44595A7'
@@ -154,7 +155,7 @@ def parse_opened_crystal(contract_address, tx_receipt, rpc_address):
     # Given the receipt from opening a crystal, return the id of the new hero
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     contract = w3.eth.contract(contract_address, abi=ABI)
-    opened_info = contract.events.CrystalOpen().processReceipt(tx_receipt)
+    opened_info = contract.events.CrystalOpen().processReceipt(tx_receipt, errors=DISCARD)
     hero_id = opened_info[0].args.heroId
     return hero_id
 
