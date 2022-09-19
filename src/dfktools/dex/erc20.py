@@ -337,15 +337,13 @@ def allowance(owner_address, spending_contract_address, token_address, rpc_addre
 
     return result
 
-def approve(token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+def approve(spending_contract_address, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
-
     contract_address = Web3.toChecksumAddress(token_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
-
-    tx = contract.functions.approve(account.address, sys.maxsize)
+    tx = contract.functions.approve(spending_contract_address, sys.maxsize)
 
     if isinstance(gas_price_gwei, dict):  # dynamic fee
         tx = tx.buildTransaction(
@@ -354,32 +352,24 @@ def approve(token_address, private_key, nonce, gas_price_gwei, tx_timeout_second
     else:  # legacy
         tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
-    logger.debug("Signing transaction")
-    
+    logger.debug("Signing transaction") 
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
     logger.debug("Sending transaction " + str(tx))
-    
     ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     logger.debug("Transaction successfully sent !")
-    
     logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
-    
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds,
-                                                     poll_latency=2)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
     logger.info("Transaction mined !")
 
     return tx_receipt
 
-
-def transfer(token_address, private_key, nonce, dest_address, amount, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+def transfer(recipient_address, amount, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
-
     contract_address = Web3.toChecksumAddress(token_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
-
-    tx = contract.functions.transferFrom(account.address, dest_address, amount)
+    tx = contract.functions.transfer(recipient_address, amount)
 
     if isinstance(gas_price_gwei, dict):  # dynamic fee
         tx = tx.buildTransaction(
@@ -389,17 +379,38 @@ def transfer(token_address, private_key, nonce, dest_address, amount, gas_price_
         tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
     logger.debug("Signing transaction")
-    
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
     logger.debug("Sending transaction " + str(tx))
-    
     ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     logger.debug("Transaction successfully sent !")
-    
     logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
+    logger.info("Transaction mined !")
     
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds,
-                                                     poll_latency=2)
+    return tx_receipt
+
+def transfer_from(sender_address, recipient_address, amount, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+    w3 = Web3(Web3.HTTPProvider(rpc_address))
+    account = w3.eth.account.privateKeyToAccount(private_key)
+    w3.eth.default_account = account.address
+    contract_address = Web3.toChecksumAddress(token_address)
+    contract = w3.eth.contract(contract_address, abi=ABI)
+    tx = contract.functions.transferFrom(sender_address, recipient_address, amount)
+
+    if isinstance(gas_price_gwei, dict):  # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:  # legacy
+        tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+
+    logger.debug("Signing transaction")
+    signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
+    logger.debug("Sending transaction " + str(tx))
+    ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    logger.debug("Transaction successfully sent !")
+    logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
     logger.info("Transaction mined !")
 
     return tx_receipt
