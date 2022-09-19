@@ -329,6 +329,13 @@ def balance_of(address, token_address, rpc_address):
 
     return result
 
+def allowance(owner_address, spending_contract_address, token_address, rpc_address):
+    w3 = Web3(Web3.HTTPProvider(rpc_address))
+    contract_address = Web3.toChecksumAddress(token_address)
+    contract = w3.eth.contract(contract_address, abi=ABI)
+    result = contract.functions.allowance(owner_address,spending_contract_address).call()
+
+    return result
 
 def approve(token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
