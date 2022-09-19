@@ -1,8 +1,8 @@
 import sys
 from web3 import Web3
 
-SERENDALE_IDS = ['serendale']
-CRYSTALVALE_IDS = ['crystalvale']
+SERENDALE_IDS = ['serendale', 'sd']
+CRYSTALVALE_IDS = ['crystalvale', 'cv']
 
 ITEMS_SERENDALE = [
     ("0x72Cb10C6bfA5624dD07Ef608027E366bd690048F", "JEWEL", "Jewel"),
@@ -90,7 +90,6 @@ ITEMS_CRYSTALVALE = [
     ("0x6e7185872bcdf3f7a6cbbe81356e50daffb002d2", "XCRYSTAL", "xCrystal"),
     ("0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6", "JEWEL", "Jewel"),
     ("0x77f2656d04E158f915bC22f07B779D94c1DC47Ff", "XJEWEL", "xJEWEL"),
-    ("0xCCb93dABD71c8Dad03Fc4CE5559dC3D89F67a260", "WJEWEL", "wJEWEL"),
     ("0x576C260513204392F0eC0bc865450872025CB1cA", "DFKGOLD", "DFK Gold"),
     ("0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA", "DFKTEARS", "Gaia's Tears"),
     ("0xB78d5580d6D897DE60E1A942A5C1dc07Bc716943", "DFKAMBRTFY", "Ambertaffy"),
@@ -125,16 +124,16 @@ ITEMS_CRYSTALVALE = [
     ("0x7E121418cC5080C96d967cf6A033B0E541935097", "DFKGREGG", "Grey Pet Egg"),
     ("0x72F860bF73ffa3FC42B97BbcF43Ae80280CFcdc3", "DFKYELOWEGG", "Yellow Pet Egg"),
     ("0xf2D479DaEdE7F9e270a90615F8b1C52F3C487bC7", "DFKGOLDEGG", "Golden Egg"),
-    ("0x5986045e7c221c8AD40A736B6434D82E29687aeB", "DFKANTBLND", "Anti-Blinding Potion"),
-    ("0x449eB718e351a86718A090A1a8Db3FD561306d9b", "DFKANTPSN", "Anti-Poison Potion"),
-    ("0x5948dd8Df6afEFE05B033AD8f3ae513a9Cd4F1Dc", "DFKFHLTHPTN", "Full Health Potion"),
-    ("0xf17FD21bDF6713a1Dfed668b97835b21e32651e8", "DFKFMNPTN", "Full Mana Potion"),
-    ("0x591853e01EcFDcF1Bdc9f093423C197BfBBd1A4f", "DFKHLTHPTN", "Health Vial"),
-    ("0xFADCb72aAE2713975a890b59FF47231D1A552De3", "DFKMGCRSPTN", "Magic Resistance Potion"),
-    ("0x240da5314B05E84392e868aC8f2b80ad6becadd4", "DFKMNPTN", "Mana Vial"),
     ("0x242078edFDca25ef2A497C8D9f256Fd641472E5F", "DFKSTMNPTN", "Stamina Vial"),
     ("0x84246Ce3988742D46fC00d9b8b2AFb5CDBDaE660", "DFKSWFTPTN", "Swiftness Potion"),
+    ("0x591853e01EcFDcF1Bdc9f093423C197BfBBd1A4f", "DFKHLTHPTN", "Health Vial"),
+    ("0x5948dd8Df6afEFE05B033AD8f3ae513a9Cd4F1Dc", "DFKFHLTHPTN", "Full Health Potion"),
+    ("0x449eB718e351a86718A090A1a8Db3FD561306d9b", "DFKANTPSN", "Anti-poison Potion"),
     ("0x2dfFf745d2c7ddCAD4E97b80DF33705B1a95A172", "DFKTFNSPTN", "Toughness Potion"),
+    ("0x240da5314B05E84392e868aC8f2b80ad6becadd4", "DFKMNPTN", "Mana Vial"),
+    ("0xf17FD21bDF6713a1Dfed668b97835b21e32651e8", "DFKFMNPTN", "Full Mana Potion"),
+    ("0xFADCb72aAE2713975a890b59FF47231D1A552De3", "DFKMGCRSPTN", "Magic Resistance Potion"),
+    ("0x5986045e7c221c8AD40A736B6434D82E29687aeB", "DFKANTBLND", "Anti-blinding Potion"),
     ("0x7643ADB5AaF129A424390CB055d6e23231fFd690", "DFKLCHSST", "Lesser Chaos Stone"),
     ("0xF1D53fa23C562246B9d8EC591eEa12Ec0288a888", "DFKLFINST", "Lesser Finesse Stone"),
     ("0xf599Ae2c925D3287a7fF64DC1b55C7Ea6EE3AA8f", "DFKLFRTIST", "Lesser Fortitude Stone"),
@@ -181,49 +180,48 @@ ITEMS_CRYSTALVALE = [
     ("0xcD9201F50e5Be84ECE3D8F603dcd3e9DD5e88ea2", "DFKVGRCR", "Vigor Crystal"),
     ("0xAeb5b59c8B90D4F078046550Cc8F9f08dC127253", "DFKWITCR", "Wit Crystal"),
     ("0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a", "DFKETRNLSTY", "Pages of the Eternal Story"),       
+
 ]
 
-
-
 ABI = """
-    [
-        {"type": "constructor", "inputs": [{"name": "_name", "type": "string", "internalType": "string"}, {"name": "_symbol", "type": "string", "internalType": "string"}], "stateMutability": "nonpayable"},
-        {"name": "Approval", "type": "event", "inputs": [{"name": "owner", "type": "address", "internalType": "address", "indexed": true}, {"name": "spender", "type": "address", "internalType": "address", "indexed": true}, {"name": "value", "type": "uint256", "internalType": "uint256", "indexed": false}], "anonymous": false},
-        {"name": "Paused", "type": "event", "inputs": [{"name": "account", "type": "address", "internalType": "address", "indexed": false}], "anonymous": false},
-        {"name": "RoleAdminChanged", "type": "event", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "previousAdminRole", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "newAdminRole", "type": "bytes32", "internalType": "bytes32", "indexed": true}], "anonymous": false},
-        {"name": "RoleGranted", "type": "event", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "account", "type": "address", "internalType": "address", "indexed": true}, {"name": "sender", "type": "address", "internalType": "address", "indexed": true}], "anonymous": false},
-        {"name": "RoleRevoked", "type": "event", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "account", "type": "address", "internalType": "address", "indexed": true}, {"name": "sender", "type": "address", "internalType": "address", "indexed": true}], "anonymous": false},
-        {"name": "Transfer", "type": "event", "inputs": [{"name": "from", "type": "address", "internalType": "address", "indexed": true}, {"name": "to", "type": "address", "internalType": "address", "indexed": true}, {"name": "value", "type": "uint256", "internalType": "uint256", "indexed": false}], "anonymous": false},
-        {"name": "Unpaused", "type": "event", "inputs": [{"name": "account", "type": "address", "internalType": "address", "indexed": false}], "anonymous": false},
-        {"name": "DEFAULT_ADMIN_ROLE", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
-        {"name": "MINTER_ROLE", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
-        {"name": "PAUSER_ROLE", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
-        {"name": "allowance", "type": "function", "inputs": [{"name": "owner", "type": "address", "internalType": "address"}, {"name": "spender", "type": "address", "internalType": "address"}], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
-        {"name": "approve", "type": "function", "inputs": [{"name": "spender", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
-        {"name": "balanceOf", "type": "function", "inputs": [{"name": "account", "type": "address", "internalType": "address"}], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
-        {"name": "burn", "type": "function", "inputs": [{"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "burnFrom", "type": "function", "inputs": [{"name": "account", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "decimals", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "uint8", "internalType": "uint8"}], "stateMutability": "view"},
-        {"name": "decreaseAllowance", "type": "function", "inputs": [{"name": "spender", "type": "address", "internalType": "address"}, {"name": "subtractedValue", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
-        {"name": "getRoleAdmin", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
-        {"name": "getRoleMember", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "index", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "address", "internalType": "address"}], "stateMutability": "view"},
-        {"name": "getRoleMemberCount", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
-        {"name": "grantRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "hasRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "view"},
-        {"name": "increaseAllowance", "type": "function", "inputs": [{"name": "spender", "type": "address", "internalType": "address"}, {"name": "addedValue", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
-        {"name": "mint", "type": "function", "inputs": [{"name": "to", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "name", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "string", "internalType": "string"}], "stateMutability": "view"},
-        {"name": "pause", "type": "function", "inputs": [], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "paused", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "view"},
-        {"name": "renounceRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "revokeRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [], "stateMutability": "nonpayable"},
-        {"name": "supportsInterface", "type": "function", "inputs": [{"name": "interfaceId", "type": "bytes4", "internalType": "bytes4"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "view"},
-        {"name": "symbol", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "string", "internalType": "string"}], "stateMutability": "view"},
-        {"name": "totalSupply", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
-        {"name": "transfer", "type": "function", "inputs": [{"name": "recipient", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
-        {"name": "transferFrom", "type": "function", "inputs": [{"name": "sender", "type": "address", "internalType": "address"}, {"name": "recipient", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
-        {"name": "unpause", "type": "function", "inputs": [], "outputs": [], "stateMutability": "nonpayable"}
-    ]
+        [
+            {"inputs":[{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_symbol","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},
+            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},
+            {"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"account","type":"address"}],"name":"Paused","type":"event"},
+            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"role","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"previousAdminRole","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"newAdminRole","type":"bytes32"}],"name":"RoleAdminChanged","type":"event"},
+            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"role","type":"bytes32"},{"indexed":true,"internalType":"address","name":"account","type":"address"},{"indexed":true,"internalType":"address","name":"sender","type":"address"}],"name":"RoleGranted","type":"event"},
+            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"role","type":"bytes32"},{"indexed":true,"internalType":"address","name":"account","type":"address"},{"indexed":true,"internalType":"address","name":"sender","type":"address"}],"name":"RoleRevoked","type":"event"},
+            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},
+            {"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"account","type":"address"}],"name":"Unpaused","type":"event"},
+            {"inputs":[],"name":"DEFAULT_ADMIN_ROLE","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
+            {"inputs":[],"name":"MINTER_ROLE","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
+            {"inputs":[],"name":"PAUSER_ROLE","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"}],"name":"getRoleAdmin","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"uint256","name":"index","type":"uint256"}],"name":"getRoleMember","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"}],"name":"getRoleMemberCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"grantRole","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"hasRole","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},
+            {"inputs":[],"name":"pause","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[],"name":"paused","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"renounceRole","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"revokeRole","outputs":[],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
+            {"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},
+            {"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
+            {"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
+            {"inputs":[],"name":"unpause","outputs":[],"stateMutability":"nonpayable","type":"function"}
+        ]
         """
 
 
@@ -329,47 +327,16 @@ def balance_of(address, token_address, rpc_address):
 
     return result
 
-def allowance(owner_address, spending_contract_address, token_address, rpc_address):
-    w3 = Web3(Web3.HTTPProvider(rpc_address))
-    contract_address = Web3.toChecksumAddress(token_address)
-    contract = w3.eth.contract(contract_address, abi=ABI)
-    result = contract.functions.allowance(owner_address,spending_contract_address).call()
 
-    return result
-
-def approve(spending_contract_address, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+def approve(token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
+
     contract_address = Web3.toChecksumAddress(token_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
-    tx = contract.functions.approve(spending_contract_address, sys.maxsize)
 
-    if isinstance(gas_price_gwei, dict):  # dynamic fee
-        tx = tx.buildTransaction(
-            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
-             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
-    else:  # legacy
-        tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
-
-    logger.debug("Signing transaction") 
-    signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
-    logger.debug("Sending transaction " + str(tx))
-    ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
-    logger.debug("Transaction successfully sent !")
-    logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
-    logger.info("Transaction mined !")
-
-    return tx_receipt
-
-def transfer(recipient_address, amount, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
-    w3 = Web3(Web3.HTTPProvider(rpc_address))
-    account = w3.eth.account.privateKeyToAccount(private_key)
-    w3.eth.default_account = account.address
-    contract_address = Web3.toChecksumAddress(token_address)
-    contract = w3.eth.contract(contract_address, abi=ABI)
-    tx = contract.functions.transfer(recipient_address, amount)
+    tx = contract.functions.approve(account.address, sys.maxsize)
 
     if isinstance(gas_price_gwei, dict):  # dynamic fee
         tx = tx.buildTransaction(
@@ -379,23 +346,31 @@ def transfer(recipient_address, amount, token_address, private_key, nonce, gas_p
         tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
     logger.debug("Signing transaction")
-    signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
-    logger.debug("Sending transaction " + str(tx))
-    ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
-    logger.debug("Transaction successfully sent !")
-    logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
-    logger.info("Transaction mined !")
     
+    signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
+    logger.debug("Sending transaction " + str(tx))
+    
+    ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    logger.debug("Transaction successfully sent !")
+    
+    logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
+    
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds,
+                                                     poll_latency=2)
+    logger.info("Transaction mined !")
+
     return tx_receipt
 
-def transfer_from(sender_address, recipient_address, amount, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+
+def transfer(token_address, private_key, nonce, dest_address, amount, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
+
     contract_address = Web3.toChecksumAddress(token_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
-    tx = contract.functions.transferFrom(sender_address, recipient_address, amount)
+
+    tx = contract.functions.transferFrom(account.address, dest_address, amount)
 
     if isinstance(gas_price_gwei, dict):  # dynamic fee
         tx = tx.buildTransaction(
@@ -405,12 +380,17 @@ def transfer_from(sender_address, recipient_address, amount, token_address, priv
         tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
     logger.debug("Signing transaction")
+    
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
     logger.debug("Sending transaction " + str(tx))
+    
     ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     logger.debug("Transaction successfully sent !")
+    
     logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
+    
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds,
+                                                     poll_latency=2)
     logger.info("Transaction mined !")
 
     return tx_receipt

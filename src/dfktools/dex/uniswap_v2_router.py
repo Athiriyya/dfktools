@@ -5,35 +5,36 @@ https://docs.uniswap.org/protocol/V2/reference/smart-contracts/router-02
 from web3 import Web3
 
 
-CONTRACT_ADDRESS = '0x24ad62502d1C652Cc7684081169D04896aC20f30'
+SERENDALE_CONTRACT_ADDRESS = '0x24ad62502d1C652Cc7684081169D04896aC20f30'
+CRYSTALVALE_CONTRACT_ADDRESS = '0x3C351E1afdd1b1BC44e931E12D4E05D6125eaeCa'
 
 ABI = """
-        [
-            {"inputs":[],"name":"WETH","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"pure","type":"function"},
-            {"inputs":[{"internalType":"address","name":"tokenA","type":"address"},{"internalType":"address","name":"tokenB","type":"address"},{"internalType":"uint256","name":"amountADesired","type":"uint256"},{"internalType":"uint256","name":"amountBDesired","type":"uint256"},{"internalType":"uint256","name":"amountAMin","type":"uint256"},{"internalType":"uint256","name":"amountBMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"addLiquidity","outputs":[{"internalType":"uint256","name":"amountA","type":"uint256"},{"internalType":"uint256","name":"amountB","type":"uint256"},{"internalType":"uint256","name":"liquidity","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"amountTokenDesired","type":"uint256"},{"internalType":"uint256","name":"amountTokenMin","type":"uint256"},{"internalType":"uint256","name":"amountETHMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"addLiquidityETH","outputs":[{"internalType":"uint256","name":"amountToken","type":"uint256"},{"internalType":"uint256","name":"amountETH","type":"uint256"},{"internalType":"uint256","name":"liquidity","type":"uint256"}],"stateMutability":"payable","type":"function"},
-            {"inputs":[],"name":"factory","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"pure","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOut","type":"uint256"},{"internalType":"uint256","name":"reserveIn","type":"uint256"},{"internalType":"uint256","name":"reserveOut","type":"uint256"}],"name":"getAmountIn","outputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"}],"stateMutability":"pure","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"},{"internalType":"uint256","name":"reserveIn","type":"uint256"},{"internalType":"uint256","name":"reserveOut","type":"uint256"}],"name":"getAmountOut","outputs":[{"internalType":"uint256","name":"amountOut","type":"uint256"}],"stateMutability":"pure","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOut","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"}],"name":"getAmountsIn","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"}],"name":"getAmountsOut","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountA","type":"uint256"},{"internalType":"uint256","name":"reserveA","type":"uint256"},{"internalType":"uint256","name":"reserveB","type":"uint256"}],"name":"quote","outputs":[{"internalType":"uint256","name":"amountB","type":"uint256"}],"stateMutability":"pure","type":"function"},
-            {"inputs":[{"internalType":"address","name":"tokenA","type":"address"},{"internalType":"address","name":"tokenB","type":"address"},{"internalType":"uint256","name":"liquidity","type":"uint256"},{"internalType":"uint256","name":"amountAMin","type":"uint256"},{"internalType":"uint256","name":"amountBMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"removeLiquidity","outputs":[{"internalType":"uint256","name":"amountA","type":"uint256"},{"internalType":"uint256","name":"amountB","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"liquidity","type":"uint256"},{"internalType":"uint256","name":"amountTokenMin","type":"uint256"},{"internalType":"uint256","name":"amountETHMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"removeLiquidityETH","outputs":[{"internalType":"uint256","name":"amountToken","type":"uint256"},{"internalType":"uint256","name":"amountETH","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"liquidity","type":"uint256"},{"internalType":"uint256","name":"amountTokenMin","type":"uint256"},{"internalType":"uint256","name":"amountETHMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"removeLiquidityETHSupportingFeeOnTransferTokens","outputs":[{"internalType":"uint256","name":"amountETH","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"liquidity","type":"uint256"},{"internalType":"uint256","name":"amountTokenMin","type":"uint256"},{"internalType":"uint256","name":"amountETHMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"},{"internalType":"bool","name":"approveMax","type":"bool"},{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"name":"removeLiquidityETHWithPermit","outputs":[{"internalType":"uint256","name":"amountToken","type":"uint256"},{"internalType":"uint256","name":"amountETH","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"liquidity","type":"uint256"},{"internalType":"uint256","name":"amountTokenMin","type":"uint256"},{"internalType":"uint256","name":"amountETHMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"},{"internalType":"bool","name":"approveMax","type":"bool"},{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"name":"removeLiquidityETHWithPermitSupportingFeeOnTransferTokens","outputs":[{"internalType":"uint256","name":"amountETH","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"tokenA","type":"address"},{"internalType":"address","name":"tokenB","type":"address"},{"internalType":"uint256","name":"liquidity","type":"uint256"},{"internalType":"uint256","name":"amountAMin","type":"uint256"},{"internalType":"uint256","name":"amountBMin","type":"uint256"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"},{"internalType":"bool","name":"approveMax","type":"bool"},{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"name":"removeLiquidityWithPermit","outputs":[{"internalType":"uint256","name":"amountA","type":"uint256"},{"internalType":"uint256","name":"amountB","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOut","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapETHForExactTokens","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"payable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokens","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"payable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"},{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactTokensForETH","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"},{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactTokensForETHSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"},{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactTokensForTokens","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountIn","type":"uint256"},{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactTokensForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOut","type":"uint256"},{"internalType":"uint256","name":"amountInMax","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapTokensForExactETH","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amountOut","type":"uint256"},{"internalType":"uint256","name":"amountInMax","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapTokensForExactTokens","outputs":[{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"stateMutability":"nonpayable","type":"function"}
-        ]
+    [
+        {"name": "WETH", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "address", "internalType": "address"}], "stateMutability": "pure"},
+        {"name": "addLiquidity", "type": "function", "inputs": [{"name": "tokenA", "type": "address", "internalType": "address"}, {"name": "tokenB", "type": "address", "internalType": "address"}, {"name": "amountADesired", "type": "uint256", "internalType": "uint256"}, {"name": "amountBDesired", "type": "uint256", "internalType": "uint256"}, {"name": "amountAMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountBMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountA", "type": "uint256", "internalType": "uint256"}, {"name": "amountB", "type": "uint256", "internalType": "uint256"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "addLiquidityETH", "type": "function", "inputs": [{"name": "token", "type": "address", "internalType": "address"}, {"name": "amountTokenDesired", "type": "uint256", "internalType": "uint256"}, {"name": "amountTokenMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountETHMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountToken", "type": "uint256", "internalType": "uint256"}, {"name": "amountETH", "type": "uint256", "internalType": "uint256"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}], "stateMutability": "payable"},
+        {"name": "factory", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "address", "internalType": "address"}], "stateMutability": "pure"},
+        {"name": "getAmountIn", "type": "function", "inputs": [{"name": "amountOut", "type": "uint256", "internalType": "uint256"}, {"name": "reserveIn", "type": "uint256", "internalType": "uint256"}, {"name": "reserveOut", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}], "stateMutability": "pure"},
+        {"name": "getAmountOut", "type": "function", "inputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}, {"name": "reserveIn", "type": "uint256", "internalType": "uint256"}, {"name": "reserveOut", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountOut", "type": "uint256", "internalType": "uint256"}], "stateMutability": "pure"},
+        {"name": "getAmountsIn", "type": "function", "inputs": [{"name": "amountOut", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "view"},
+        {"name": "getAmountsOut", "type": "function", "inputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "view"},
+        {"name": "quote", "type": "function", "inputs": [{"name": "amountA", "type": "uint256", "internalType": "uint256"}, {"name": "reserveA", "type": "uint256", "internalType": "uint256"}, {"name": "reserveB", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountB", "type": "uint256", "internalType": "uint256"}], "stateMutability": "pure"},
+        {"name": "removeLiquidity", "type": "function", "inputs": [{"name": "tokenA", "type": "address", "internalType": "address"}, {"name": "tokenB", "type": "address", "internalType": "address"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}, {"name": "amountAMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountBMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountA", "type": "uint256", "internalType": "uint256"}, {"name": "amountB", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "removeLiquidityETH", "type": "function", "inputs": [{"name": "token", "type": "address", "internalType": "address"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}, {"name": "amountTokenMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountETHMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountToken", "type": "uint256", "internalType": "uint256"}, {"name": "amountETH", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "removeLiquidityETHSupportingFeeOnTransferTokens", "type": "function", "inputs": [{"name": "token", "type": "address", "internalType": "address"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}, {"name": "amountTokenMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountETHMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amountETH", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "removeLiquidityETHWithPermit", "type": "function", "inputs": [{"name": "token", "type": "address", "internalType": "address"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}, {"name": "amountTokenMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountETHMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}, {"name": "approveMax", "type": "bool", "internalType": "bool"}, {"name": "v", "type": "uint8", "internalType": "uint8"}, {"name": "r", "type": "bytes32", "internalType": "bytes32"}, {"name": "s", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "amountToken", "type": "uint256", "internalType": "uint256"}, {"name": "amountETH", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens", "type": "function", "inputs": [{"name": "token", "type": "address", "internalType": "address"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}, {"name": "amountTokenMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountETHMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}, {"name": "approveMax", "type": "bool", "internalType": "bool"}, {"name": "v", "type": "uint8", "internalType": "uint8"}, {"name": "r", "type": "bytes32", "internalType": "bytes32"}, {"name": "s", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "amountETH", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "removeLiquidityWithPermit", "type": "function", "inputs": [{"name": "tokenA", "type": "address", "internalType": "address"}, {"name": "tokenB", "type": "address", "internalType": "address"}, {"name": "liquidity", "type": "uint256", "internalType": "uint256"}, {"name": "amountAMin", "type": "uint256", "internalType": "uint256"}, {"name": "amountBMin", "type": "uint256", "internalType": "uint256"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}, {"name": "approveMax", "type": "bool", "internalType": "bool"}, {"name": "v", "type": "uint8", "internalType": "uint8"}, {"name": "r", "type": "bytes32", "internalType": "bytes32"}, {"name": "s", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "amountA", "type": "uint256", "internalType": "uint256"}, {"name": "amountB", "type": "uint256", "internalType": "uint256"}], "stateMutability": "nonpayable"},
+        {"name": "swapETHForExactTokens", "type": "function", "inputs": [{"name": "amountOut", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "payable"},
+        {"name": "swapExactETHForTokens", "type": "function", "inputs": [{"name": "amountOutMin", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "payable"},
+        {"name": "swapExactETHForTokensSupportingFeeOnTransferTokens", "type": "function", "inputs": [{"name": "amountOutMin", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "payable"},
+        {"name": "swapExactTokensForETH", "type": "function", "inputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}, {"name": "amountOutMin", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "nonpayable"},
+        {"name": "swapExactTokensForETHSupportingFeeOnTransferTokens", "type": "function", "inputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}, {"name": "amountOutMin", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
+        {"name": "swapExactTokensForTokens", "type": "function", "inputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}, {"name": "amountOutMin", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "nonpayable"},
+        {"name": "swapExactTokensForTokensSupportingFeeOnTransferTokens", "type": "function", "inputs": [{"name": "amountIn", "type": "uint256", "internalType": "uint256"}, {"name": "amountOutMin", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
+        {"name": "swapTokensForExactETH", "type": "function", "inputs": [{"name": "amountOut", "type": "uint256", "internalType": "uint256"}, {"name": "amountInMax", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "nonpayable"},
+        {"name": "swapTokensForExactTokens", "type": "function", "inputs": [{"name": "amountOut", "type": "uint256", "internalType": "uint256"}, {"name": "amountInMax", "type": "uint256", "internalType": "uint256"}, {"name": "path", "type": "address[]", "internalType": "address[]"}, {"name": "to", "type": "address", "internalType": "address"}, {"name": "deadline", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "amounts", "type": "uint256[]", "internalType": "uint256[]"}], "stateMutability": "nonpayable"}
+    ]
     """
 
 
@@ -41,7 +42,7 @@ def block_explorer_link(txid):
     return 'https://explorer.harmony.one/tx/' + str(txid)
 
 
-def weth(rpc_address):
+def weth(contract_address, rpc_address):
     '''
     Return the wrapped address of the native token of the blockchain
     :param rpc_address:
@@ -50,49 +51,49 @@ def weth(rpc_address):
 
     w3 = Web3(Web3.HTTPProvider(rpc_address))
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
 
     return contract.functions.WETH().call()
 
 
-def factory(rpc_address):
+def factory(contract_address, rpc_address):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
 
     return contract.functions.factory().call()
 
 
-def quote(amount_a, reserve_a, reserve_b, rpc_address):
+def quote(contract_address, amount_a, reserve_a, reserve_b, rpc_address):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
 
     return contract.functions.quote(amount_a, reserve_a, reserve_b).call()
 
 
-def get_amount_in(amount_out, reserve_in, reserve_out, rpc_address):
+def get_amount_in(contract_address, amount_out, reserve_in, reserve_out, rpc_address):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
 
     return contract.functions.getAmountIn(amount_out, reserve_in, reserve_out).call()
 
 
-def get_amount_out(amount_in, reserve_in, reserve_out, rpc_address):
+def get_amount_out(contract_address, amount_in, reserve_in, reserve_out, rpc_address):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
 
     return contract.functions.getAmountOut(amount_in, reserve_in, reserve_out).call()
 
 
-def swap_exact_tokens_for_tokens(amount_in, amount_out_min, path, to, deadline, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+def swap_exact_tokens_for_tokens(contract_address, amount_in, amount_out_min, path, to, deadline, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     '''
     Swaps an exact amount of input tokens for as many output tokens as possible, along the route determined by the
     path. The first element of path is the input token, the last is the output token, and any intermediate elements
@@ -115,11 +116,16 @@ def swap_exact_tokens_for_tokens(amount_in, amount_out_min, path, to, deadline, 
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
+    tx = contract.functions.swapExactTokensForTokens(amount_in, amount_out_min, path, to, deadline)
 
-    tx = contract.functions.swapExactTokensForTokens(amount_in, amount_out_min, path, to, deadline).buildTransaction(
-        {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+    if isinstance(gas_price_gwei, dict):   # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:   # legacy
+        tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
     logger.debug("Signing transaction")
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
@@ -136,7 +142,7 @@ def swap_exact_tokens_for_tokens(amount_in, amount_out_min, path, to, deadline, 
     return tx_receipt
 
 
-def swap_exact_tokens_for_eth(amount_in, amount_out_min, path, to, deadline, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+def swap_exact_tokens_for_eth(contract_address, amount_in, amount_out_min, path, to, deadline, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     '''
     Swaps an exact amount of tokens for as much ETH as possible, along the route determined by the path.
     The first element of path is the input token, the last must be WETH, and any intermediate elements represent
@@ -158,11 +164,17 @@ def swap_exact_tokens_for_eth(amount_in, amount_out_min, path, to, deadline, pri
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
 
-    contract_address = Web3.toChecksumAddress(CONTRACT_ADDRESS)
+    contract_address = Web3.toChecksumAddress(contract_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
 
-    tx = contract.functions.swapExactTokensForETH(amount_in, amount_out_min, path, to, deadline).buildTransaction(
-        {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+    tx = contract.functions.swapExactTokensForETH(amount_in, amount_out_min, path, to, deadline)
+    
+    if isinstance(gas_price_gwei, dict):   # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:   # legacy
+        tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
     logger.debug("Signing transaction")
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
