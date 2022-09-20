@@ -5,223 +5,224 @@ SERENDALE_IDS = ['serendale', 'sd']
 CRYSTALVALE_IDS = ['crystalvale', 'cv']
 
 ITEMS_SERENDALE = [
-    ("0x72Cb10C6bfA5624dD07Ef608027E366bd690048F", "JEWEL", "Jewel"),
-    ("0xA9cE83507D872C5e1273E745aBcfDa849DAA654F", "XJEWEL", "xJewel"),
-    ("0x3a4EDcf3312f44EF027acfd8c21382a5259936e7", "DFKGOLD", "Gold Pile"),
-    ("0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04", "DFKTEARS", "Gaia's Tears"),
-    ("0x6e1bC01Cc52D165B357c42042cF608159A2B81c1", "DFKAMBRTFY", "Ambertaffy"),
-    ("0x68EA4640C5ce6cC0c9A1F17B7b882cB1cBEACcd7", "DFKDRKWD", "Darkweed"),
-    ("0x600541aD6Ce0a8b5dae68f086D46361534D20E80", "DFKGLDVN", "Goldvein"),
-    ("0x043F9bd9Bb17dFc90dE3D416422695Dd8fa44486", "DFKRGWD", "Ragweed"),
-    ("0x094243DfABfBB3E6F71814618ace53f07362a84c", "DFKRDLF", "Redleaf"),
-    ("0x6B10Ad6E3b99090De20bF9f95F960addC35eF3E2", "DFKRCKRT", "Rockroot"),
-    ("0xCdfFe898E687E941b124dfB7d24983266492eF1d", "DFKSWFTHSL", "Swift-Thistle"),
-    ("0x78aED65A2Cc40C7D8B0dF1554Da60b38AD351432", "DFKBLOATER", "Bloater"),
-    ("0xe4Cfee5bF05CeF3418DA74CFB89727D8E4fEE9FA", "DFKIRONSCALE", "Ironscale"),
-    ("0x8Bf4A0888451C6b5412bCaD3D9dA3DCf5c6CA7BE", "DFKLANTERNEYE", "Lanterneye"),
-    ("0xc5891912718ccFFcC9732D1942cCD98d5934C2e1", "DFKREDGILL", "Redgill"),
-    ("0xb80A07e13240C31ec6dc0B5D72Af79d461dA3A70", "DFKSAILFISH", "Sailfish"),
-    ("0x372CaF681353758f985597A35266f7b330a2A44D", "DFKSHIMMERSKIN", "Shimmerskin"),
-    ("0x2493cfDAcc0f9c07240B5B1C4BE08c62b8eEff69", "DFKSILVERFIN", "Silverfin"),
-    ("0x66F5BfD910cd83d3766c4B39d13730C911b2D286", "DFKSHVAS", "Shvas Rune"),
-    ("0x9678518e04Fe02FB30b55e2D0e554E26306d0892", "DFKBLUEEGG", "Blue Pet Egg"),
-    ("0x95d02C1Dc58F05A015275eB49E107137D9Ee81Dc", "DFKGREGG", "Grey Pet Egg"),
-    ("0x6d605303e9Ac53C59A3Da1ecE36C9660c7A71da5", "DFKGREENEGG", "Green Pet Egg"),
-    ("0x9edb3Da18be4B03857f3d39F83e5C6AAD67bc148", "DFKGOLDEGG", "Golden Pet Egg"),
-    ("0x3dB1fd0Ad479A46216919758144FD15A21C3e93c", "DFKYELOWEGG", "Yellow Pet Egg"),
-    ("0xAC5c49Ff7E813dE1947DC74bbb1720c353079ac9", "DFKBLUESTEM", "Bluestem"),
-    ("0xc0214b37FCD01511E6283Af5423CF24C96BB9808", "DFKMILKWEED", "Milkweed"),
-    ("0x19B9F05cdE7A61ab7aae5b0ed91aA62FF51CF881", "DFKSPIDRFRT", "Spiderfruit"),
-    ("0x17f3B5240C4A71a3BBF379710f6fA66B9b51f224", "DFKGATONECR", "Greater Atonement Crystal"),
-    ("0x1f3F655079b70190cb79cE5bc5AE5F19dAf2A6Cf", "DFKLATONECR", "Lesser Atonement Crystal"),
-    ("0x27dC6AaaD95580EdF25F8B9676f1B984e09e413d", "DFKATONECR", "Atonement Crystal"),
-    ("0x959ba19508827d1ed2333B1b503Bd5ab006C710e", "DFKSTMNPTN", "Stamina Vial"),
-    ("0x872dD1595544CE22ad1e0174449C7ECE6F0bb01b", "DFKSWFTPTN", "Swiftness Potion"),
-    ("0x2789F04d22a845dC854145d3c289240517f2BcF0", "DFKHLTHPTN", "Health Vial"),
-    ("0x87361363A75c9A6303ce813D0B2656c34B68FF52", "DFKFHLTHPTN", "Full Health Potion"),
-    ("0xA1f8b0E88c51a45E152934686270DDF4E3356278", "DFKANTPSN", "Anti-poison Potion"),
-    ("0xFb03c364969a0bB572Ce62b8Cd616A7DDEb4c09A", "DFKTFNSPTN", "Toughness Potion"),
-    ("0x19b020001AB0C12Ffa93e1FDeF90c7C37C8C71ef", "DFKMNPTN", "Mana Vial"),
-    ("0xDc2C698aF26Ff935cD1c50Eef3a4A933C62AF18D", "DFKFMNPTN", "Full Mana Potion"),
-    ("0x7e120334D9AFFc0982719A4eacC045F78BF41C68", "DFKMGCRSPTN", "Magic Resistance Potion"),
-    ("0x1771dEc8D9A29F30d82443dE0a69e7b6824e2F53", "DFKANTBLND", "Anti-blinding Potion"),
-    ("0x8F655142104478724bbC72664042EA09EBbF7B38", "DFKMOKSHA", "Moksha Rune"),
-    ("0x45B53E55b5c0A10fdd4fE2079a562d5702F3A033", "DFKCHSCR", "Chaos Crystal"),
-    ("0xa509c34306AdF6168268A213Cc47D336630bf101", "DFKLCHSCR", "Lesser Chaos Crystal"),
-    ("0x3633F956410163A98D58D2D928B38C64A488654e", "DFKCHSST", "Chaos Stone"),
-    ("0x6D4f4bC32df561a35C05866051CbE9C92759Da29", "DFKLCHSST", "Lesser Chaos Stone"),
-    ("0xc6A58eFc320A7aFDB1cD662eaf6de10Ee17103F2", "DFKFINCR", "Finesse Crystal"),
-    ("0x39927A2CEE5580d63A163bc402946C7600300373", "DFKLFINCR", "Lesser Finesse Crystal"),
-    ("0xD0B689Cb5DE0c15792Aa456C89D64038C1F2EedC", "DFKFINST", "Finesse Stone"),
-    ("0xbb5614D466b77d50DdEd994892DFe6F0ACA4eEbb", "DFKLFINST", "Lesser Finesse Stone"),
-    ("0x603919AEB55EB13F9CDE94274fC54ab2Bd2DecE7", "DFKFRTICR", "Fortitude Crystal"),
-    ("0x3017609B9A59B77B708D783835B6fF94a3D9E337", "DFKLFRTICR", "Lesser Fortitude Crystal"),
-    ("0x17Fa96ba9d9C29e4B96d29A7e89a4E7B240E3343", "DFKFRTIST", "Fortitude Stone"),
-    ("0x1f57eb682377f5Ad6276b9315412920BdF9530f6", "DFKLFRTIST", "Lesser Fortitude Stone"),
-    ("0x6D777C64f0320d8A5b31BE0FdeB694007Fc3ed45", "DFKFRTUCR", "Fortune Crystal"),
-    ("0x13AF184aEA970Fe79E3BB7A1B0B156B195fB1f40", "DFKLFRTUCR", "Lesser Fortune Crystal"),
-    ("0x5da2EffE9857DcEcB786E13566Ff37B92e1E6862", "DFKFRTUST", "Fortune Stone"),
-    ("0x6D6eA1D2Dc1Df6Eaa2153f212d25Cf92d13Be628", "DFKLFRTUST", "Lesser Fortune Stone"),
-    ("0x117E60775584CdfA4f414E22b075F31cC9c3207C", "DFKINSCR", "Insight Crystal"),
-    ("0xc63b76f710e9973b8989678eb16234CfADc8D9DB", "DFKLINSCR", "Lesser Insight Crystal"),
-    ("0x9D71Bb9C781FC2eBdD3d6cb709438e3c71200149", "DFKINSST", "Insight Stone"),
-    ("0x762b98B3758d0A5Eb95B3E4A1E2914Ce0A80D99c", "DFKLINSST", "Lesser Insight Stone"),
-    ("0xb368f69bE6eDa74700763672AEB2Ae63f3d20AE6", "DFKMGHTCR", "Might Crystal"),
-    ("0xaB464901AFBc61bAC440a97Fa568aC42885Da58B", "DFKLMGHTCR", "Lesser Might Crystal"),
-    ("0xE7F6ea1cE7BbEbC9F2Cf080010dd938d2D8D8B1b", "DFKMGHTST", "Might Stone"),
-    ("0xe4E7C0c693d8A7FC159776a993495378705464A7", "DFKLMGHTST", "Lesser Might Stone"),
-    ("0x5d7f20e3B0f1406Bf038175218eA7e9B4838908c", "DFKSWFTCR", "Swiftness Crystal"),
-    ("0xf5c26F2F34E9245C3A9ea0B0e7Ea7B33E6404Da0", "DFKLSWFTCR", "Lesser Swiftness Crystal"),
-    ("0x08f362517aD4119d93bBCd20825c2E4119abB495", "DFKSWFTST", "Swiftness Stone"),
-    ("0xd9A8abC0Ce1ADC23F1c1813986c9a9C21C9e7510", "DFKLSWFTST", "Lesser Swiftness Stone"),
-    ("0xBbA50bD111DC586Fd1f2B1476B6eC505800A3FD0", "DFKVGRCR", "Vigor Crystal"),
-    ("0x0d8403E47445DB9E316E36F476dacD5827220Bdd", "DFKLVGRCR", "Lesser Vigor Crystal"),
-    ("0x9df75917aC9747B4A70fa033E4b0182d85B62857", "DFKVGRST", "Vigor Stone"),
-    ("0xB00CbF5Cd5e7b321436C2D3d8078773522D2F073", "DFKLVGRST", "Lesser Vigor Stone"),
-    ("0x3619fc2386FbBC19DDC39d29A72457e758CFAD69", "DFKWITCR", "Wit Crystal"),
-    ("0x17ff2016c9ecCFBF4Fc4DA6EF95Fe646D2c9104F", "DFKLWITCR", "Lesser Wit Crystal"),
-    ("0x939Ea05C81aAC48F7C10BdB08615082B82C80c63", "DFKWITST", "Wit Stone"),
-    ("0x4Ff7A020ec1100D36d5C81F3D4815F2e9C704b59", "DFKLWITST", "Lesser Wit Stone"),
-    ("0x0000000000000000000000000000000000000000", "NOTHING", "Nothing")
+    ("0x72Cb10C6bfA5624dD07Ef608027E366bd690048F", "JEWEL", "Jewel", 18),
+    ("0xA9cE83507D872C5e1273E745aBcfDa849DAA654F", "XJEWEL", "xJewel", 18),
+    ("0x3a4EDcf3312f44EF027acfd8c21382a5259936e7", "DFKGOLD", "Gold Pile", 3),
+    ("0x24eA0D436d3c2602fbfEfBe6a16bBc304C963D04", "DFKTEARS", "Gaia's Tears", 0),
+    ("0x6e1bC01Cc52D165B357c42042cF608159A2B81c1", "DFKAMBRTFY", "Ambertaffy", 0),
+    ("0x68EA4640C5ce6cC0c9A1F17B7b882cB1cBEACcd7", "DFKDRKWD", "Darkweed", 0),
+    ("0x600541aD6Ce0a8b5dae68f086D46361534D20E80", "DFKGLDVN", "Goldvein", 0),
+    ("0x043F9bd9Bb17dFc90dE3D416422695Dd8fa44486", "DFKRGWD", "Ragweed", 0),
+    ("0x094243DfABfBB3E6F71814618ace53f07362a84c", "DFKRDLF", "Redleaf", 0),
+    ("0x6B10Ad6E3b99090De20bF9f95F960addC35eF3E2", "DFKRCKRT", "Rockroot", 0),
+    ("0xCdfFe898E687E941b124dfB7d24983266492eF1d", "DFKSWFTHSL", "Swift-Thistle", 0),
+    ("0x78aED65A2Cc40C7D8B0dF1554Da60b38AD351432", "DFKBLOATER", "Bloater", 0),
+    ("0xe4Cfee5bF05CeF3418DA74CFB89727D8E4fEE9FA", "DFKIRONSCALE", "Ironscale", 0),
+    ("0x8Bf4A0888451C6b5412bCaD3D9dA3DCf5c6CA7BE", "DFKLANTERNEYE", "Lanterneye", 0),
+    ("0xc5891912718ccFFcC9732D1942cCD98d5934C2e1", "DFKREDGILL", "Redgill", 0),
+    ("0xb80A07e13240C31ec6dc0B5D72Af79d461dA3A70", "DFKSAILFISH", "Sailfish", 0),
+    ("0x372CaF681353758f985597A35266f7b330a2A44D", "DFKSHIMMERSKIN", "Shimmerskin", 0),
+    ("0x2493cfDAcc0f9c07240B5B1C4BE08c62b8eEff69", "DFKSILVERFIN", "Silverfin", 0),
+    ("0x66F5BfD910cd83d3766c4B39d13730C911b2D286", "DFKSHVAS", "Shvas Rune", 0),
+    ("0x9678518e04Fe02FB30b55e2D0e554E26306d0892", "DFKBLUEEGG", "Blue Pet Egg", 0),
+    ("0x95d02C1Dc58F05A015275eB49E107137D9Ee81Dc", "DFKGREGG", "Grey Pet Egg", 0),
+    ("0x6d605303e9Ac53C59A3Da1ecE36C9660c7A71da5", "DFKGREENEGG", "Green Pet Egg", 0),
+    ("0x9edb3Da18be4B03857f3d39F83e5C6AAD67bc148", "DFKGOLDEGG", "Golden Pet Egg", 0),
+    ("0x3dB1fd0Ad479A46216919758144FD15A21C3e93c", "DFKYELOWEGG", "Yellow Pet Egg", 0),
+    ("0xAC5c49Ff7E813dE1947DC74bbb1720c353079ac9", "DFKBLUESTEM", "Bluestem", 0),
+    ("0xc0214b37FCD01511E6283Af5423CF24C96BB9808", "DFKMILKWEED", "Milkweed", 0),
+    ("0x19B9F05cdE7A61ab7aae5b0ed91aA62FF51CF881", "DFKSPIDRFRT", "Spiderfruit", 0),
+    ("0x17f3B5240C4A71a3BBF379710f6fA66B9b51f224", "DFKGATONECR", "Greater Atonement Crystal", 0),
+    ("0x1f3F655079b70190cb79cE5bc5AE5F19dAf2A6Cf", "DFKLATONECR", "Lesser Atonement Crystal", 0),
+    ("0x27dC6AaaD95580EdF25F8B9676f1B984e09e413d", "DFKATONECR", "Atonement Crystal", 0),
+    ("0x959ba19508827d1ed2333B1b503Bd5ab006C710e", "DFKSTMNPTN", "Stamina Vial", 0),
+    ("0x872dD1595544CE22ad1e0174449C7ECE6F0bb01b", "DFKSWFTPTN", "Swiftness Potion", 0),
+    ("0x2789F04d22a845dC854145d3c289240517f2BcF0", "DFKHLTHPTN", "Health Vial", 0),
+    ("0x87361363A75c9A6303ce813D0B2656c34B68FF52", "DFKFHLTHPTN", "Full Health Potion", 0),
+    ("0xA1f8b0E88c51a45E152934686270DDF4E3356278", "DFKANTPSN", "Anti-poison Potion", 0),
+    ("0xFb03c364969a0bB572Ce62b8Cd616A7DDEb4c09A", "DFKTFNSPTN", "Toughness Potion", 0),
+    ("0x19b020001AB0C12Ffa93e1FDeF90c7C37C8C71ef", "DFKMNPTN", "Mana Vial", 0),
+    ("0xDc2C698aF26Ff935cD1c50Eef3a4A933C62AF18D", "DFKFMNPTN", "Full Mana Potion", 0),
+    ("0x7e120334D9AFFc0982719A4eacC045F78BF41C68", "DFKMGCRSPTN", "Magic Resistance Potion", 0),
+    ("0x1771dEc8D9A29F30d82443dE0a69e7b6824e2F53", "DFKANTBLND", "Anti-blinding Potion", 0),
+    ("0x8F655142104478724bbC72664042EA09EBbF7B38", "DFKMOKSHA", "Moksha Rune", 0),
+    ("0x45B53E55b5c0A10fdd4fE2079a562d5702F3A033", "DFKCHSCR", "Chaos Crystal", 0),
+    ("0xa509c34306AdF6168268A213Cc47D336630bf101", "DFKLCHSCR", "Lesser Chaos Crystal", 0),
+    ("0x3633F956410163A98D58D2D928B38C64A488654e", "DFKCHSST", "Chaos Stone", 0),
+    ("0x6D4f4bC32df561a35C05866051CbE9C92759Da29", "DFKLCHSST", "Lesser Chaos Stone", 0),
+    ("0xc6A58eFc320A7aFDB1cD662eaf6de10Ee17103F2", "DFKFINCR", "Finesse Crystal", 0),
+    ("0x39927A2CEE5580d63A163bc402946C7600300373", "DFKLFINCR", "Lesser Finesse Crystal", 0),
+    ("0xD0B689Cb5DE0c15792Aa456C89D64038C1F2EedC", "DFKFINST", "Finesse Stone", 0),
+    ("0xbb5614D466b77d50DdEd994892DFe6F0ACA4eEbb", "DFKLFINST", "Lesser Finesse Stone", 0),
+    ("0x603919AEB55EB13F9CDE94274fC54ab2Bd2DecE7", "DFKFRTICR", "Fortitude Crystal", 0),
+    ("0x3017609B9A59B77B708D783835B6fF94a3D9E337", "DFKLFRTICR", "Lesser Fortitude Crystal", 0),
+    ("0x17Fa96ba9d9C29e4B96d29A7e89a4E7B240E3343", "DFKFRTIST", "Fortitude Stone", 0),
+    ("0x1f57eb682377f5Ad6276b9315412920BdF9530f6", "DFKLFRTIST", "Lesser Fortitude Stone", 0),
+    ("0x6D777C64f0320d8A5b31BE0FdeB694007Fc3ed45", "DFKFRTUCR", "Fortune Crystal", 0),
+    ("0x13AF184aEA970Fe79E3BB7A1B0B156B195fB1f40", "DFKLFRTUCR", "Lesser Fortune Crystal", 0),
+    ("0x5da2EffE9857DcEcB786E13566Ff37B92e1E6862", "DFKFRTUST", "Fortune Stone", 0),
+    ("0x6D6eA1D2Dc1Df6Eaa2153f212d25Cf92d13Be628", "DFKLFRTUST", "Lesser Fortune Stone", 0),
+    ("0x117E60775584CdfA4f414E22b075F31cC9c3207C", "DFKINSCR", "Insight Crystal", 0),
+    ("0xc63b76f710e9973b8989678eb16234CfADc8D9DB", "DFKLINSCR", "Lesser Insight Crystal", 0),
+    ("0x9D71Bb9C781FC2eBdD3d6cb709438e3c71200149", "DFKINSST", "Insight Stone", 0),
+    ("0x762b98B3758d0A5Eb95B3E4A1E2914Ce0A80D99c", "DFKLINSST", "Lesser Insight Stone", 0),
+    ("0xb368f69bE6eDa74700763672AEB2Ae63f3d20AE6", "DFKMGHTCR", "Might Crystal", 0),
+    ("0xaB464901AFBc61bAC440a97Fa568aC42885Da58B", "DFKLMGHTCR", "Lesser Might Crystal", 0),
+    ("0xE7F6ea1cE7BbEbC9F2Cf080010dd938d2D8D8B1b", "DFKMGHTST", "Might Stone", 0),
+    ("0xe4E7C0c693d8A7FC159776a993495378705464A7", "DFKLMGHTST", "Lesser Might Stone", 0),
+    ("0x5d7f20e3B0f1406Bf038175218eA7e9B4838908c", "DFKSWFTCR", "Swiftness Crystal", 0),
+    ("0xf5c26F2F34E9245C3A9ea0B0e7Ea7B33E6404Da0", "DFKLSWFTCR", "Lesser Swiftness Crystal", 0),
+    ("0x08f362517aD4119d93bBCd20825c2E4119abB495", "DFKSWFTST", "Swiftness Stone", 0),
+    ("0xd9A8abC0Ce1ADC23F1c1813986c9a9C21C9e7510", "DFKLSWFTST", "Lesser Swiftness Stone", 0),
+    ("0xBbA50bD111DC586Fd1f2B1476B6eC505800A3FD0", "DFKVGRCR", "Vigor Crystal", 0),
+    ("0x0d8403E47445DB9E316E36F476dacD5827220Bdd", "DFKLVGRCR", "Lesser Vigor Crystal", 0),
+    ("0x9df75917aC9747B4A70fa033E4b0182d85B62857", "DFKVGRST", "Vigor Stone", 0),
+    ("0xB00CbF5Cd5e7b321436C2D3d8078773522D2F073", "DFKLVGRST", "Lesser Vigor Stone", 0),
+    ("0x3619fc2386FbBC19DDC39d29A72457e758CFAD69", "DFKWITCR", "Wit Crystal", 0),
+    ("0x17ff2016c9ecCFBF4Fc4DA6EF95Fe646D2c9104F", "DFKLWITCR", "Lesser Wit Crystal", 0),
+    ("0x939Ea05C81aAC48F7C10BdB08615082B82C80c63", "DFKWITST", "Wit Stone", 0),
+    ("0x4Ff7A020ec1100D36d5C81F3D4815F2e9C704b59", "DFKLWITST", "Lesser Wit Stone", 0),
+    ("0x0000000000000000000000000000000000000000", "NOTHING", "Nothing", 0)
 ]
 
 ITEMS_CRYSTALVALE = [
-    ("0x04b9dA42306B023f3572e106B11D82aAd9D32EBb", "CRYSTAL", "Crystal"),
-    ("0x6e7185872bcdf3f7a6cbbe81356e50daffb002d2", "XCRYSTAL", "xCrystal"),
-    ("0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6", "JEWEL", "Jewel"),
-    ("0x77f2656d04E158f915bC22f07B779D94c1DC47Ff", "XJEWEL", "xJEWEL"),
-    ("0x576C260513204392F0eC0bc865450872025CB1cA", "DFKGOLD", "DFK Gold"),
-    ("0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA", "DFKTEARS", "Gaia's Tears"),
-    ("0xB78d5580d6D897DE60E1A942A5C1dc07Bc716943", "DFKAMBRTFY", "Ambertaffy"),
-    ("0xA2cef1763e59198025259d76Ce8F9E60d27B17B5", "DFKMILKWEED", "Milkweed"),
-    ("0x848Ac8ddC199221Be3dD4e4124c462B806B6C4Fd", "DFKDRKWD", "Darkweed"),
-    ("0x0096ffda7A8f8E00e9F8Bbd1cF082c14FA9d642e", "DFKGLDVN", "Goldvein"),
-    ("0x3E022D84D397F18743a90155934aBAC421D5FA4C", "DFKSPIDRFRT", "SpiderFruit"),
-    ("0x137995beEEec688296B0118131C1052546475fF3", "DFKRGWD", "Ragweed"),
-    ("0x473A41e71618dD0709Ba56518256793371427d79", "DFKRDLF", "Redleaf"),
-    ("0x60170664b52c035Fcb32CF5c9694b22b47882e5F", "DFKRCKRT", "Rockroot"),
-    ("0x0776b936344DE7bd58A4738306a6c76835ce5D3F", "DFKBLUESTEM", "Blue Stem"),
-    ("0x97b25DE9F61BBBA2aD51F1b706D4D7C04257f33A", "DFKSWFTHSL", "Swift-Thistle"),
-    ("0xe7a1B580942148451E47b92e95aEB8d31B0acA37", "DFKFROSTDRM", "Frost Drum"),
-    ("0xBcdD90034eB73e7Aec2598ea9082d381a285f63b", "DFKKNAPROOT", "Knaproot"),
-    ("0x80A42Dc2909C0873294c5E359e8DF49cf21c74E4", "DFKSHAGCAP", "Shaggy Caps"),
-    ("0xc6030Afa09EDec1fd8e63a1dE10fC00E0146DaF3", "DFKSKNSHADE", "Skunk Shade"),
-    ("0x268CC8248FFB72Cd5F3e73A9a20Fa2FF40EfbA61", "DFKBLOATER", "Bloater"),
-    ("0x04B43D632F34ba4D4D72B0Dc2DC4B30402e5Cf88", "DFKIRONSCALE", "Ironscale"),
-    ("0xc2Ff93228441Ff4DD904c60Ecbc1CfA2886C76eB", "DFKLANTERNEYE", "Lanterneye"),
-    ("0x68eE50dD7F1573423EE0Ed9c66Fc1A696f937e81", "DFKREDGILL", "Redgill"),
-    ("0x7f46E45f6e0361e7B9304f338404DA85CB94E33D", "DFKSAILFISH", "Sailfish"),
-    ("0xd44ee492889C078934662cfeEc790883DCe245f3", "DFKSHIMMERSKIN", "Shimmerskin"),
-    ("0xA7CFd21223151700FB82684Cd9c693596267375D", "DFKSILVERFIN", "Silverfin"),
-    ("0x3bcb9A3DaB194C6D8D44B424AF383E7Db51C82BD", "DFKFBLOATER", "Frost Bloater"),
-    ("0xE7CB27ad646C49dC1671Cb9207176D864922C431", "DFKSPCKLTL", "Speckle Tail"),
-    ("0x60A3810a3963f23Fa70591435bbe93BF8786E202", "DFKKINGPNCR", "King Pincer"),
-    ("0x6513757978E89e822772c16B60AE033781A29A4F", "DFKTHREEL", "Three Eyed Eel"),
-    ("0x75E8D8676d774C9429FbB148b30E304b5542aC3d", "DFKSHVAS", "Shvas Rune"),
-    ("0xCd2192521BD8e33559b0CA24f3260fE6A26C28e4", "DFKMOKSHA", "Moksha Rune"),
-    ("0xa61Bac689AD6867a605633520D70C49e1dCce853", "DFKBLUEEGG", "Blue Pet Egg"),
-    ("0x8D2bC53106063A37bb3DDFCa8CfC1D262a9BDCeB", "DFKGREENEGG", "Green Pet Egg"),
-    ("0x7E121418cC5080C96d967cf6A033B0E541935097", "DFKGREGG", "Grey Pet Egg"),
-    ("0x72F860bF73ffa3FC42B97BbcF43Ae80280CFcdc3", "DFKYELOWEGG", "Yellow Pet Egg"),
-    ("0xf2D479DaEdE7F9e270a90615F8b1C52F3C487bC7", "DFKGOLDEGG", "Golden Egg"),
-    ("0x242078edFDca25ef2A497C8D9f256Fd641472E5F", "DFKSTMNPTN", "Stamina Vial"),
-    ("0x84246Ce3988742D46fC00d9b8b2AFb5CDBDaE660", "DFKSWFTPTN", "Swiftness Potion"),
-    ("0x591853e01EcFDcF1Bdc9f093423C197BfBBd1A4f", "DFKHLTHPTN", "Health Vial"),
-    ("0x5948dd8Df6afEFE05B033AD8f3ae513a9Cd4F1Dc", "DFKFHLTHPTN", "Full Health Potion"),
-    ("0x449eB718e351a86718A090A1a8Db3FD561306d9b", "DFKANTPSN", "Anti-poison Potion"),
-    ("0x2dfFf745d2c7ddCAD4E97b80DF33705B1a95A172", "DFKTFNSPTN", "Toughness Potion"),
-    ("0x240da5314B05E84392e868aC8f2b80ad6becadd4", "DFKMNPTN", "Mana Vial"),
-    ("0xf17FD21bDF6713a1Dfed668b97835b21e32651e8", "DFKFMNPTN", "Full Mana Potion"),
-    ("0xFADCb72aAE2713975a890b59FF47231D1A552De3", "DFKMGCRSPTN", "Magic Resistance Potion"),
-    ("0x5986045e7c221c8AD40A736B6434D82E29687aeB", "DFKANTBLND", "Anti-blinding Potion"),
-    ("0x7643ADB5AaF129A424390CB055d6e23231fFd690", "DFKLCHSST", "Lesser Chaos Stone"),
-    ("0xF1D53fa23C562246B9d8EC591eEa12Ec0288a888", "DFKLFINST", "Lesser Finesse Stone"),
-    ("0xf599Ae2c925D3287a7fF64DC1b55C7Ea6EE3AA8f", "DFKLFRTIST", "Lesser Fortitude Stone"),
-    ("0x934e3e2a433F37cC2D02855A43fD7Ed475EA7451", "DFKLFRTUST", "Lesser Fortune Stone"),
-    ("0x3D112747ff2463802Afa240B62ade8F1cc4a5c7d", "DFKLINSST", "Lesser Insight Stone"),
-    ("0xf345b884eA45aEcb3E46CeEaEDB9CE993Ba3615a", "DFKLMGHTST", "Lesser Might Stone"),
-    ("0xd37aCbAC3C25a543B30aa16208637cfa6EB97eDd", "DFKLSWFTST", "Lesser Swiftness Stone"),
-    ("0x63891e0fcfEe0cEB12dE5fb96F43ADf9DbEC20a3", "DFKLVGRST", "Lesser Vigor Stone"),
-    ("0xFC943eBd19112D6c6098412238E4E8319641B3d8", "DFKLWITST", "Lesser Wit Stone"),
-    ("0x1ED1a6Ed588945C59227f7a0c622Ad564229d3d6", "DFKCHSST", "Chaos Stone"),
-    ("0xe2C357ECB698C5ee97c49CCCfA8117c4b943C7B9", "DFKFINST", "Finesse Stone"),
-    ("0x05305c97e9A2FDC0F5Ea23824c1348DEeD9Aff04", "DFKFRTIST", "Fortitude Stone"),
-    ("0xd647D8b52981eDE13ac6a5B7Ad04e212Ac38fdFb", "DFKFRTUST", "Fortune Stone"),
-    ("0x74CFf096C9B027104fb1a0C2E0e265D123eA47De", "DFKINSST", "Insight Stone"),
-    ("0x37bAa710391c1D6e22396E4B7F78477F0fF2fFA7", "DFKMGHTST", "Might Stone"),
-    ("0x4F95D51fB8eF93704aF8C39A080c794cdA08f853", "DFKSWFTST", "Swiftness Stone"),
-    ("0xA71a120931526fC98f1AcC9f769b6b0d690fB8f0", "DFKVGRST", "Vigor Stone"),
-    ("0x3971212Ec22147EE8808cB84F743DD852Be92f9C", "DFKWITST", "Wit Stone"),
-    ("0xEd4Bf3008afE47FE01CcC7a6648a24E326667eee", "DFKGCHSST", "Greater Chaos Stone"),
-    ("0xF35D4f749C6ADCd4AEfE1720C5890cD38129d128", "DFKGFINST", "Greater Finesse Stone"),
-    ("0xc2eF7E4f659272ca2DaE9d3df05680783b299Cd0", "DFKGFRTIST", "Greater Fortitude Stone"),
-    ("0x8FfF0f5A660b4D38441DDF6127bca42D7a2755a9", "DFKGFRTUST", "Greater Fortune Stone"),
-    ("0x3198f51A1c8cFC5f1FeaD58feaa19E6dFc8e9737", "DFKGINSST", "Greater Insight Stone"),
-    ("0xA0851F6368AfA693a6654e9fdaf76CB6F160B837", "DFKGMGHTST", "Greater Might Stone"),
-    ("0x40D2c135a3E5a6f6546626795DEc67f818f0352a", "DFKGSWFTST", "Greater Swiftness Stone"),
-    ("0x0A5985574369EDE9Bd871fbdad61613D4C11Dac4", "DFKGVGRST", "Greater Vigor Stone"),
-    ("0xa1BD7683fA348e256a2de8a9dDB55E5ea01eB048", "DFKGWITST", "Greater Wit Stone"),
-    ("0xeEe5b16Cc49e7cef65391Fe7325cea17f787e245", "DFKLCHSCR", "Lesser Chaos Crystal"),
-    ("0x9d9ef1Bf6A46b8413bf6b1b54F6A7aAb53c6b1b6", "DFKLFINCR", "Lesser Finesse Crystal"),
-    ("0xbd2677c06C9448534A851bdD25dF045872b87cb1", "DFKLFRTICR", "Lesser Fortitude Crystal"),
-    ("0xE410b2BE2Ce1508E15009118567d02C6d7A7038e", "DFKLFRTUCR", "Lesser Fortune Crystal"),
-    ("0xbb5F97358F60cCBa262883A3Ff0C637393FE3aB8", "DFKLINSCR", "Lesser Insight Crystal"),
-    ("0x5bAC3cAd961B01Ef9510C8e6c5402A2bB1542831", "DFKLMGHTCR", "Lesser Might Crystal"),
-    ("0x6BCA53314dADdA7f4De30A95413f75a93bfAfecF", "DFKLSWFTCR", "Lesser Swiftness Crystal"),
-    ("0x5e4Cf6907CB5fBe2F642E399F6d07E567155d1F8", "DFKLVGRCR", "Lesser Vigor Crystal"),
-    ("0xC989c916F189D2A2BE0322c020942d7c43aEa830", "DFKLWITCR", "Lesser Wit Crystal"),
-    ("0xC6b00B4005883C1Ff09fa1351B0f49027bCAB71a", "DFKCHSCR", "Chaos Crystal"),
-    ("0xA9A8cc1AC7e7505a69cAca2E068716395CebE562", "DFKFINCR", "Finesse Crystal"),
-    ("0xdbEE8C336B06f2d30a6d2bB3817a3Ae0E34f4900", "DFKFRTICR", "Fortitude Crystal"),
-    ("0xe9BfCc80800EB77a1eAF6881825936770aF83Eb6", "DFKFRTUCR", "Fortune Crystal"),
-    ("0x03e56Ded72C3a974295773355EadB38c0A85cF9D", "DFKINSCR", "Insight Crystal"),
-    ("0x234dCf10Db6817185F5A3b430a8CAF2B4a35e9E9", "DFKMGHTCR", "Might Crystal"),
-    ("0x3e664eB15b35783B9D3EF06702044820F08bB45B", "DFKSWFTCR", "Swiftness Crystal"),
-    ("0xcD9201F50e5Be84ECE3D8F603dcd3e9DD5e88ea2", "DFKVGRCR", "Vigor Crystal"),
-    ("0xAeb5b59c8B90D4F078046550Cc8F9f08dC127253", "DFKWITCR", "Wit Crystal"),
-    ("0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a", "DFKETRNLSTY", "Pages of the Eternal Story"),       
+    ("0x04b9dA42306B023f3572e106B11D82aAd9D32EBb", "CRYSTAL", "Crystal", 18),
+    ("0x6e7185872bcdf3f7a6cbbe81356e50daffb002d2", "XCRYSTAL", "xCrystal", 18),
+    ("0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6", "JEWEL", "Jewel", 18),
+    ("0x77f2656d04E158f915bC22f07B779D94c1DC47Ff", "XJEWEL", "xJEWEL", 18),
+    ("0xCCb93dABD71c8Dad03Fc4CE5559dC3D89F67a260", "WJEWEL", "wJEWEL", 18),
+    ("0x576C260513204392F0eC0bc865450872025CB1cA", "DFKGOLD", "DFK Gold", 3),
+    ("0x79fE1fCF16Cc0F7E28b4d7B97387452E3084b6dA", "DFKTEARS", "Gaia's Tears", 0),
+    ("0xB78d5580d6D897DE60E1A942A5C1dc07Bc716943", "DFKAMBRTFY", "Ambertaffy", 0),
+    ("0xA2cef1763e59198025259d76Ce8F9E60d27B17B5", "DFKMILKWEED", "Milkweed", 0),
+    ("0x848Ac8ddC199221Be3dD4e4124c462B806B6C4Fd", "DFKDRKWD", "Darkweed", 0),
+    ("0x0096ffda7A8f8E00e9F8Bbd1cF082c14FA9d642e", "DFKGLDVN", "Goldvein", 0),
+    ("0x3E022D84D397F18743a90155934aBAC421D5FA4C", "DFKSPIDRFRT", "SpiderFruit", 0),
+    ("0x137995beEEec688296B0118131C1052546475fF3", "DFKRGWD", "Ragweed", 0),
+    ("0x473A41e71618dD0709Ba56518256793371427d79", "DFKRDLF", "Redleaf", 0),
+    ("0x60170664b52c035Fcb32CF5c9694b22b47882e5F", "DFKRCKRT", "Rockroot", 0),
+    ("0x0776b936344DE7bd58A4738306a6c76835ce5D3F", "DFKBLUESTEM", "Blue Stem", 0),
+    ("0x97b25DE9F61BBBA2aD51F1b706D4D7C04257f33A", "DFKSWFTHSL", "Swift-Thistle", 0),
+    ("0xe7a1B580942148451E47b92e95aEB8d31B0acA37", "DFKFROSTDRM", "Frost Drum", 0),
+    ("0xBcdD90034eB73e7Aec2598ea9082d381a285f63b", "DFKKNAPROOT", "Knaproot", 0),
+    ("0x80A42Dc2909C0873294c5E359e8DF49cf21c74E4", "DFKSHAGCAP", "Shaggy Caps", 0),
+    ("0xc6030Afa09EDec1fd8e63a1dE10fC00E0146DaF3", "DFKSKNSHADE", "Skunk Shade", 0),
+    ("0x268CC8248FFB72Cd5F3e73A9a20Fa2FF40EfbA61", "DFKBLOATER", "Bloater", 0),
+    ("0x04B43D632F34ba4D4D72B0Dc2DC4B30402e5Cf88", "DFKIRONSCALE", "Ironscale", 0),
+    ("0xc2Ff93228441Ff4DD904c60Ecbc1CfA2886C76eB", "DFKLANTERNEYE", "Lanterneye", 0),
+    ("0x68eE50dD7F1573423EE0Ed9c66Fc1A696f937e81", "DFKREDGILL", "Redgill", 0),
+    ("0x7f46E45f6e0361e7B9304f338404DA85CB94E33D", "DFKSAILFISH", "Sailfish", 0),
+    ("0xd44ee492889C078934662cfeEc790883DCe245f3", "DFKSHIMMERSKIN", "Shimmerskin", 0),
+    ("0xA7CFd21223151700FB82684Cd9c693596267375D", "DFKSILVERFIN", "Silverfin", 0),
+    ("0x3bcb9A3DaB194C6D8D44B424AF383E7Db51C82BD", "DFKFBLOATER", "Frost Bloater", 0),
+    ("0xE7CB27ad646C49dC1671Cb9207176D864922C431", "DFKSPCKLTL", "Speckle Tail", 0),
+    ("0x60A3810a3963f23Fa70591435bbe93BF8786E202", "DFKKINGPNCR", "King Pincer", 0),
+    ("0x6513757978E89e822772c16B60AE033781A29A4F", "DFKTHREEL", "Three Eyed Eel", 0),
+    ("0x75E8D8676d774C9429FbB148b30E304b5542aC3d", "DFKSHVAS", "Shvas Rune", 0),
+    ("0xCd2192521BD8e33559b0CA24f3260fE6A26C28e4", "DFKMOKSHA", "Moksha Rune", 0),
+    ("0xa61Bac689AD6867a605633520D70C49e1dCce853", "DFKBLUEEGG", "Blue Pet Egg", 0),
+    ("0x8D2bC53106063A37bb3DDFCa8CfC1D262a9BDCeB", "DFKGREENEGG", "Green Pet Egg", 0),
+    ("0x7E121418cC5080C96d967cf6A033B0E541935097", "DFKGREGG", "Grey Pet Egg", 0),
+    ("0x72F860bF73ffa3FC42B97BbcF43Ae80280CFcdc3", "DFKYELOWEGG", "Yellow Pet Egg", 0),
+    ("0xf2D479DaEdE7F9e270a90615F8b1C52F3C487bC7", "DFKGOLDEGG", "Golden Egg", 0),
+    ("0x242078edFDca25ef2A497C8D9f256Fd641472E5F", "DFKSTMNPTN", "Stamina Vial", 0),
+    ("0x84246Ce3988742D46fC00d9b8b2AFb5CDBDaE660", "DFKSWFTPTN", "Swiftness Potion", 0),
+    ("0x591853e01EcFDcF1Bdc9f093423C197BfBBd1A4f", "DFKHLTHPTN", "Health Vial", 0),
+    ("0x5948dd8Df6afEFE05B033AD8f3ae513a9Cd4F1Dc", "DFKFHLTHPTN", "Full Health Potion", 0),
+    ("0x449eB718e351a86718A090A1a8Db3FD561306d9b", "DFKANTPSN", "Anti-poison Potion", 0),
+    ("0x2dfFf745d2c7ddCAD4E97b80DF33705B1a95A172", "DFKTFNSPTN", "Toughness Potion", 0),
+    ("0x240da5314B05E84392e868aC8f2b80ad6becadd4", "DFKMNPTN", "Mana Vial", 0),
+    ("0xf17FD21bDF6713a1Dfed668b97835b21e32651e8", "DFKFMNPTN", "Full Mana Potion", 0),
+    ("0xFADCb72aAE2713975a890b59FF47231D1A552De3", "DFKMGCRSPTN", "Magic Resistance Potion", 0),
+    ("0x5986045e7c221c8AD40A736B6434D82E29687aeB", "DFKANTBLND", "Anti-blinding Potion", 0),
+    ("0x7643ADB5AaF129A424390CB055d6e23231fFd690", "DFKLCHSST", "Lesser Chaos Stone", 0),
+    ("0xF1D53fa23C562246B9d8EC591eEa12Ec0288a888", "DFKLFINST", "Lesser Finesse Stone", 0),
+    ("0xf599Ae2c925D3287a7fF64DC1b55C7Ea6EE3AA8f", "DFKLFRTIST", "Lesser Fortitude Stone", 0),
+    ("0x934e3e2a433F37cC2D02855A43fD7Ed475EA7451", "DFKLFRTUST", "Lesser Fortune Stone", 0),
+    ("0x3D112747ff2463802Afa240B62ade8F1cc4a5c7d", "DFKLINSST", "Lesser Insight Stone", 0),
+    ("0xf345b884eA45aEcb3E46CeEaEDB9CE993Ba3615a", "DFKLMGHTST", "Lesser Might Stone", 0),
+    ("0xd37aCbAC3C25a543B30aa16208637cfa6EB97eDd", "DFKLSWFTST", "Lesser Swiftness Stone", 0),
+    ("0x63891e0fcfEe0cEB12dE5fb96F43ADf9DbEC20a3", "DFKLVGRST", "Lesser Vigor Stone", 0),
+    ("0xFC943eBd19112D6c6098412238E4E8319641B3d8", "DFKLWITST", "Lesser Wit Stone", 0),
+    ("0x1ED1a6Ed588945C59227f7a0c622Ad564229d3d6", "DFKCHSST", "Chaos Stone", 0),
+    ("0xe2C357ECB698C5ee97c49CCCfA8117c4b943C7B9", "DFKFINST", "Finesse Stone", 0),
+    ("0x05305c97e9A2FDC0F5Ea23824c1348DEeD9Aff04", "DFKFRTIST", "Fortitude Stone", 0),
+    ("0xd647D8b52981eDE13ac6a5B7Ad04e212Ac38fdFb", "DFKFRTUST", "Fortune Stone", 0),
+    ("0x74CFf096C9B027104fb1a0C2E0e265D123eA47De", "DFKINSST", "Insight Stone", 0),
+    ("0x37bAa710391c1D6e22396E4B7F78477F0fF2fFA7", "DFKMGHTST", "Might Stone", 0),
+    ("0x4F95D51fB8eF93704aF8C39A080c794cdA08f853", "DFKSWFTST", "Swiftness Stone", 0),
+    ("0xA71a120931526fC98f1AcC9f769b6b0d690fB8f0", "DFKVGRST", "Vigor Stone", 0),
+    ("0x3971212Ec22147EE8808cB84F743DD852Be92f9C", "DFKWITST", "Wit Stone", 0),
+    ("0xEd4Bf3008afE47FE01CcC7a6648a24E326667eee", "DFKGCHSST", "Greater Chaos Stone", 0),
+    ("0xF35D4f749C6ADCd4AEfE1720C5890cD38129d128", "DFKGFINST", "Greater Finesse Stone", 0),
+    ("0xc2eF7E4f659272ca2DaE9d3df05680783b299Cd0", "DFKGFRTIST", "Greater Fortitude Stone", 0),
+    ("0x8FfF0f5A660b4D38441DDF6127bca42D7a2755a9", "DFKGFRTUST", "Greater Fortune Stone", 0),
+    ("0x3198f51A1c8cFC5f1FeaD58feaa19E6dFc8e9737", "DFKGINSST", "Greater Insight Stone", 0),
+    ("0xA0851F6368AfA693a6654e9fdaf76CB6F160B837", "DFKGMGHTST", "Greater Might Stone", 0),
+    ("0x40D2c135a3E5a6f6546626795DEc67f818f0352a", "DFKGSWFTST", "Greater Swiftness Stone", 0),
+    ("0x0A5985574369EDE9Bd871fbdad61613D4C11Dac4", "DFKGVGRST", "Greater Vigor Stone", 0),
+    ("0xa1BD7683fA348e256a2de8a9dDB55E5ea01eB048", "DFKGWITST", "Greater Wit Stone", 0),
+    ("0xeEe5b16Cc49e7cef65391Fe7325cea17f787e245", "DFKLCHSCR", "Lesser Chaos Crystal", 0),
+    ("0x9d9ef1Bf6A46b8413bf6b1b54F6A7aAb53c6b1b6", "DFKLFINCR", "Lesser Finesse Crystal", 0),
+    ("0xbd2677c06C9448534A851bdD25dF045872b87cb1", "DFKLFRTICR", "Lesser Fortitude Crystal", 0),
+    ("0xE410b2BE2Ce1508E15009118567d02C6d7A7038e", "DFKLFRTUCR", "Lesser Fortune Crystal", 0),
+    ("0xbb5F97358F60cCBa262883A3Ff0C637393FE3aB8", "DFKLINSCR", "Lesser Insight Crystal", 0),
+    ("0x5bAC3cAd961B01Ef9510C8e6c5402A2bB1542831", "DFKLMGHTCR", "Lesser Might Crystal", 0),
+    ("0x6BCA53314dADdA7f4De30A95413f75a93bfAfecF", "DFKLSWFTCR", "Lesser Swiftness Crystal", 0),
+    ("0x5e4Cf6907CB5fBe2F642E399F6d07E567155d1F8", "DFKLVGRCR", "Lesser Vigor Crystal", 0),
+    ("0xC989c916F189D2A2BE0322c020942d7c43aEa830", "DFKLWITCR", "Lesser Wit Crystal", 0),
+    ("0xC6b00B4005883C1Ff09fa1351B0f49027bCAB71a", "DFKCHSCR", "Chaos Crystal", 0),
+    ("0xA9A8cc1AC7e7505a69cAca2E068716395CebE562", "DFKFINCR", "Finesse Crystal", 0),
+    ("0xdbEE8C336B06f2d30a6d2bB3817a3Ae0E34f4900", "DFKFRTICR", "Fortitude Crystal", 0),
+    ("0xe9BfCc80800EB77a1eAF6881825936770aF83Eb6", "DFKFRTUCR", "Fortune Crystal", 0),
+    ("0x03e56Ded72C3a974295773355EadB38c0A85cF9D", "DFKINSCR", "Insight Crystal", 0),
+    ("0x234dCf10Db6817185F5A3b430a8CAF2B4a35e9E9", "DFKMGHTCR", "Might Crystal", 0),
+    ("0x3e664eB15b35783B9D3EF06702044820F08bB45B", "DFKSWFTCR", "Swiftness Crystal", 0),
+    ("0xcD9201F50e5Be84ECE3D8F603dcd3e9DD5e88ea2", "DFKVGRCR", "Vigor Crystal", 0),
+    ("0xAeb5b59c8B90D4F078046550Cc8F9f08dC127253", "DFKWITCR", "Wit Crystal", 0),
+    ("0xA37851cCE4B2b65c0b290AA4cC2DFF00314ec85a", "DFKETRNLSTY", "Pages of the Eternal Story", 0),       
 
 ]
 
 ABI = """
-        [
-            {"inputs":[{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_symbol","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},
-            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},
-            {"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"account","type":"address"}],"name":"Paused","type":"event"},
-            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"role","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"previousAdminRole","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"newAdminRole","type":"bytes32"}],"name":"RoleAdminChanged","type":"event"},
-            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"role","type":"bytes32"},{"indexed":true,"internalType":"address","name":"account","type":"address"},{"indexed":true,"internalType":"address","name":"sender","type":"address"}],"name":"RoleGranted","type":"event"},
-            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"role","type":"bytes32"},{"indexed":true,"internalType":"address","name":"account","type":"address"},{"indexed":true,"internalType":"address","name":"sender","type":"address"}],"name":"RoleRevoked","type":"event"},
-            {"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},
-            {"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"account","type":"address"}],"name":"Unpaused","type":"event"},
-            {"inputs":[],"name":"DEFAULT_ADMIN_ROLE","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
-            {"inputs":[],"name":"MINTER_ROLE","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
-            {"inputs":[],"name":"PAUSER_ROLE","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"}],"name":"getRoleAdmin","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"uint256","name":"index","type":"uint256"}],"name":"getRoleMember","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"}],"name":"getRoleMemberCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"grantRole","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"hasRole","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},
-            {"inputs":[],"name":"pause","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[],"name":"paused","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"renounceRole","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"bytes32","name":"role","type":"bytes32"},{"internalType":"address","name":"account","type":"address"}],"name":"revokeRole","outputs":[],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
-            {"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},
-            {"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-            {"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},
-            {"inputs":[],"name":"unpause","outputs":[],"stateMutability":"nonpayable","type":"function"}
-        ]
+[
+    {"type": "constructor", "inputs": [{"name": "_name", "type": "string", "internalType": "string"}, {"name": "_symbol", "type": "string", "internalType": "string"}], "stateMutability": "nonpayable"},
+    {"name": "Approval", "type": "event", "inputs": [{"name": "owner", "type": "address", "internalType": "address", "indexed": true}, {"name": "spender", "type": "address", "internalType": "address", "indexed": true}, {"name": "value", "type": "uint256", "internalType": "uint256", "indexed": false}], "anonymous": false},
+    {"name": "Paused", "type": "event", "inputs": [{"name": "account", "type": "address", "internalType": "address", "indexed": false}], "anonymous": false},
+    {"name": "RoleAdminChanged", "type": "event", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "previousAdminRole", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "newAdminRole", "type": "bytes32", "internalType": "bytes32", "indexed": true}], "anonymous": false},
+    {"name": "RoleGranted", "type": "event", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "account", "type": "address", "internalType": "address", "indexed": true}, {"name": "sender", "type": "address", "internalType": "address", "indexed": true}], "anonymous": false},
+    {"name": "RoleRevoked", "type": "event", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32", "indexed": true}, {"name": "account", "type": "address", "internalType": "address", "indexed": true}, {"name": "sender", "type": "address", "internalType": "address", "indexed": true}], "anonymous": false},
+    {"name": "Transfer", "type": "event", "inputs": [{"name": "from", "type": "address", "internalType": "address", "indexed": true}, {"name": "to", "type": "address", "internalType": "address", "indexed": true}, {"name": "value", "type": "uint256", "internalType": "uint256", "indexed": false}], "anonymous": false},
+    {"name": "Unpaused", "type": "event", "inputs": [{"name": "account", "type": "address", "internalType": "address", "indexed": false}], "anonymous": false},
+    {"name": "DEFAULT_ADMIN_ROLE", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
+    {"name": "MINTER_ROLE", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
+    {"name": "PAUSER_ROLE", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
+    {"name": "allowance", "type": "function", "inputs": [{"name": "owner", "type": "address", "internalType": "address"}, {"name": "spender", "type": "address", "internalType": "address"}], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
+    {"name": "approve", "type": "function", "inputs": [{"name": "spender", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
+    {"name": "balanceOf", "type": "function", "inputs": [{"name": "account", "type": "address", "internalType": "address"}], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
+    {"name": "burn", "type": "function", "inputs": [{"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "burnFrom", "type": "function", "inputs": [{"name": "account", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "decimals", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "uint8", "internalType": "uint8"}], "stateMutability": "view"},
+    {"name": "decreaseAllowance", "type": "function", "inputs": [{"name": "spender", "type": "address", "internalType": "address"}, {"name": "subtractedValue", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
+    {"name": "getRoleAdmin", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "", "type": "bytes32", "internalType": "bytes32"}], "stateMutability": "view"},
+    {"name": "getRoleMember", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "index", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "address", "internalType": "address"}], "stateMutability": "view"},
+    {"name": "getRoleMemberCount", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
+    {"name": "grantRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "hasRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "view"},
+    {"name": "increaseAllowance", "type": "function", "inputs": [{"name": "spender", "type": "address", "internalType": "address"}, {"name": "addedValue", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
+    {"name": "mint", "type": "function", "inputs": [{"name": "to", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "name", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "string", "internalType": "string"}], "stateMutability": "view"},
+    {"name": "pause", "type": "function", "inputs": [], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "paused", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "view"},
+    {"name": "renounceRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "revokeRole", "type": "function", "inputs": [{"name": "role", "type": "bytes32", "internalType": "bytes32"}, {"name": "account", "type": "address", "internalType": "address"}], "outputs": [], "stateMutability": "nonpayable"},
+    {"name": "supportsInterface", "type": "function", "inputs": [{"name": "interfaceId", "type": "bytes4", "internalType": "bytes4"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "view"},
+    {"name": "symbol", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "string", "internalType": "string"}], "stateMutability": "view"},
+    {"name": "totalSupply", "type": "function", "inputs": [], "outputs": [{"name": "", "type": "uint256", "internalType": "uint256"}], "stateMutability": "view"},
+    {"name": "transfer", "type": "function", "inputs": [{"name": "recipient", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
+    {"name": "transferFrom", "type": "function", "inputs": [{"name": "sender", "type": "address", "internalType": "address"}, {"name": "recipient", "type": "address", "internalType": "address"}, {"name": "amount", "type": "uint256", "internalType": "uint256"}], "outputs": [{"name": "", "type": "bool", "internalType": "bool"}], "stateMutability": "nonpayable"},
+    {"name": "unpause", "type": "function", "inputs": [], "outputs": [], "stateMutability": "nonpayable"}
+]
         """
 
 
@@ -266,6 +267,13 @@ def symbol2address(_symbol, realm):
             return item[0]
     return None
 
+def symbol2decimals(_symbol, realm):
+    _symbol = _symbol.upper().strip()
+    items = get_realm_item_list(realm)
+    for iteim in items:
+        if item[1] == _symbol:
+            return item[3]
+    return None
 
 def address2item(address, realm):
     address = address.upper().strip()
@@ -327,17 +335,22 @@ def balance_of(address, token_address, rpc_address):
 
     return result
 
+def allowance(owner_address, spending_contract_address, token_address, rpc_address):
+    w3 = Web3(Web3.HTTPProvider(rpc_address))
+    contract_address = Web3.toChecksumAddress(token_address)
+    contract = w3.eth.contract(contract_address, abi=ABI)
+    result = contract.functions.allowance(owner_address,spending_contract_address).call()
 
-def approve(token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+    return result
+
+def transfer(recipient_address, amount, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
-
     contract_address = Web3.toChecksumAddress(token_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
-
-    tx = contract.functions.approve(account.address, sys.maxsize)
-
+    tx = contract.functions.transfer(recipient_address, amount)
+    
     if isinstance(gas_price_gwei, dict):  # dynamic fee
         tx = tx.buildTransaction(
             {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
@@ -346,31 +359,49 @@ def approve(token_address, private_key, nonce, gas_price_gwei, tx_timeout_second
         tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
     logger.debug("Signing transaction")
-    
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
     logger.debug("Sending transaction " + str(tx))
-    
     ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     logger.debug("Transaction successfully sent !")
-    
     logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
+    logger.info("Transaction mined !")
     
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds,
-                                                     poll_latency=2)
+    return tx_receipt
+
+def transfer_from(sender_address, recipient_address, amount, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+    w3 = Web3(Web3.HTTPProvider(rpc_address))
+    account = w3.eth.account.privateKeyToAccount(private_key)
+    w3.eth.default_account = account.address
+    contract_address = Web3.toChecksumAddress(token_address)
+    contract = w3.eth.contract(contract_address, abi=ABI)
+    tx = contract.functions.transferFrom(sender_address, recipient_address, amount)
+    
+    if isinstance(gas_price_gwei, dict):  # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:  # legacy
+        tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+
+    logger.debug("Signing transaction")
+    signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
+    logger.debug("Sending transaction " + str(tx))
+    ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    logger.debug("Transaction successfully sent !")
+    logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
     logger.info("Transaction mined !")
 
     return tx_receipt
 
-
-def transfer(token_address, private_key, nonce, dest_address, amount, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
+def approve(spending_contract_address, token_address, private_key, nonce, gas_price_gwei, tx_timeout_seconds, rpc_address, logger):
     w3 = Web3(Web3.HTTPProvider(rpc_address))
     account = w3.eth.account.privateKeyToAccount(private_key)
     w3.eth.default_account = account.address
-
     contract_address = Web3.toChecksumAddress(token_address)
     contract = w3.eth.contract(contract_address, abi=ABI)
-
-    tx = contract.functions.transferFrom(account.address, dest_address, amount)
+    tx = contract.functions.approve(spending_contract_address, sys.maxsize)
 
     if isinstance(gas_price_gwei, dict):  # dynamic fee
         tx = tx.buildTransaction(
@@ -379,18 +410,13 @@ def transfer(token_address, private_key, nonce, dest_address, amount, gas_price_
     else:  # legacy
         tx = tx.buildTransaction({'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
 
-    logger.debug("Signing transaction")
-    
+    logger.debug("Signing transaction") 
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
     logger.debug("Sending transaction " + str(tx))
-    
     ret = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     logger.debug("Transaction successfully sent !")
-    
     logger.info("Waiting for transaction " + block_explorer_link(signed_tx.hash.hex()) + " to be mined")
-    
-    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds,
-                                                     poll_latency=2)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(transaction_hash=signed_tx.hash, timeout=tx_timeout_seconds, poll_latency=2)
     logger.info("Transaction mined !")
 
     return tx_receipt
