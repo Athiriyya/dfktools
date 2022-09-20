@@ -178,9 +178,16 @@ def bid_hero(contract_address, token_id, bid_amount_wei, private_key, nonce, gas
 
     if logger is not None:
         logger.info("Biding " + str(wei2ether(bid_amount_wei)) + " on hero id " + str(token_id))
-    tx = sales_auction_contract.functions.bid(token_id, bid_amount_wei).buildTransaction(
-        {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+    tx = sales_auction_contract.functions.bid(token_id, bid_amount_wei)
 
+    if isinstance(gas_price_gwei, dict):   # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:   # legacy
+        tx = tx.buildTransaction(
+            {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+            
     if logger is not None:
         logger.info("Signing transaction")
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
@@ -209,8 +216,16 @@ def create_auction(contract_address, token_id, starting_price_wei, ending_price_
 
     if logger is not None:
         logger.info("Auctioning " + str(token_id) + " (starting price=" + str(wei2ether(starting_price_wei)) + ", ending price=" + str(wei2ether(ending_price_wei)) + ", duration=" + str(duration) + ", private sale buyer=" + str(winner) + ")")
-    tx = sales_auction_contract.functions.createAuction(token_id, starting_price_wei, ending_price_wei, duration, winner).buildTransaction(
-        {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+    tx = sales_auction_contract.functions.createAuction(token_id, starting_price_wei, ending_price_wei, duration, winner)
+    
+    if isinstance(gas_price_gwei, dict):   # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:   # legacy
+        tx = tx.buildTransaction(
+            {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+
     if logger is not None:
         logger.info("Signing transaction")
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
@@ -235,8 +250,16 @@ def cancel_auction(contract_address, token_id, private_key, nonce, gas_price_gwe
     sales_auction_contract_address = Web3.toChecksumAddress(contract_address)
     sales_auction_contract = w3.eth.contract(sales_auction_contract_address, abi=ABI)
 
-    tx = sales_auction_contract.functions.cancelAuction(token_id).buildTransaction(
-        {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+    tx = sales_auction_contract.functions.cancelAuction(token_id)
+
+    if isinstance(gas_price_gwei, dict):   # dynamic fee
+        tx = tx.buildTransaction(
+            {'maxFeePerGas': w3.toWei(gas_price_gwei['maxFeePerGas'], 'gwei'),
+             'maxPriorityFeePerGas': w3.toWei(gas_price_gwei['maxPriorityFeePerGas'], 'gwei'), 'nonce': nonce})
+    else:   # legacy
+        tx = tx.buildTransaction(
+            {'gasPrice': w3.toWei(gas_price_gwei, 'gwei'), 'nonce': nonce})
+
     if logger is not None:
         logger.info("Signing transaction")
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
