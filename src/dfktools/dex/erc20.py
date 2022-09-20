@@ -270,7 +270,7 @@ def symbol2address(_symbol, realm):
 def symbol2decimals(_symbol, realm):
     _symbol = _symbol.upper().strip()
     items = get_realm_item_list(realm)
-    for iteim in items:
+    for item in items:
         if item[1] == _symbol:
             return item[3]
     return None
