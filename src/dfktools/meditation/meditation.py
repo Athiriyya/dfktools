@@ -168,6 +168,8 @@ def parse_meditation_results(contract_address, tx_receipt, rpc_address):
 
     meditation_result = {}
     level_up = contract.events.LevelUp().processReceipt(tx_receipt, errors=DISCARD)
+    if not level_up:
+        return meditation_result
     new_level = level_up[0]['args']["hero"][3][3]
     
     stat_up = contract.events.StatUp().processReceipt(tx_receipt, errors=DISCARD)
